@@ -1,0 +1,131 @@
+:root {
+	font-size: 10px;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, a)) {
+	all: unset;
+	display: revert;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.2;
+}
+
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+
+body {
+	font-size: 1.6rem;
+	line-height: 1.6;
+	min-height: 100vh;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	background: #dddddd;
+}
+
+input,
+select,
+button,
+textarea {
+	font: inherit;
+}
+
+button {
+	cursor: pointer;
+	font-weight: bold;
+	padding: 0.2rem;
+}
+
+.container {
+	margin-inline: auto;
+	max-width: 600px;
+	padding: 2rem;
+}
+
+table {
+	display: table;
+	white-space: nowrap;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+	font-size: 1.4rem;
+	border: 1px solid #dddddd;
+	text-align: left;
+}
+
+table th {
+	padding: 0.5rem 1rem;
+	font-weight: 600;
+}
+
+table td {
+	padding: 0.8rem 1.5rem;
+	white-space: wrap;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: #dddddd;
+}
+
+tfoot td:nth-child(2) button {
+	margin-left: auto;
+}
+
+.hide-btn {
+	display: none;
+}
+
+@media screen and (max-width: 425px) {
+	table thead {
+		display: none;
+	}
+
+	table tr {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	table td {
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	table td::before {
+		content: attr(data-label);
+		/* padding: 1rem; */
+		font-weight: 600;
+	}
+
+	table td:last-child {
+		border-bottom: 0;
+	}
+}
