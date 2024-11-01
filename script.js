@@ -2,6 +2,7 @@ const tableBody = document.getElementById('table-body')
 const tableFooter = document.getElementById('table-footer')
 const prevBtn = document.getElementById('prev-btn')
 const nextBtn = document.getElementById('next-btn')
+const loadingSpinner = document.getElementById('loading-spinner')
 
 let coins = []
 let currentPage = 1
@@ -9,14 +10,17 @@ const perPage = 10
 
 const fetchData = async () => {
 	try {
+		loadingSpinner.style.display = 'block'
 		const resp = await fetch('https://api.coinlore.net/api/tickers/')
 		const data = await resp.json()
 
 		coins = [...data?.data]
 		renderTable(currentPage)
 	} catch (error) {
+		loadingSpinner.style.display = 'none'
 		console.error('Error fetching data', error)
 	} finally {
+		loadingSpinner.style.display = 'none'
 	}
 }
 

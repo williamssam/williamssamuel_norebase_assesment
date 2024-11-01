@@ -67,6 +67,9 @@ button {
 	margin-inline: auto;
 	max-width: 600px;
 	padding: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 table {
@@ -104,6 +107,22 @@ tfoot td:nth-child(2) button {
 	display: none;
 }
 
+
+.loader {
+	align-self: center;
+  border:4px solid #fff;
+  border-top:4px solid #000; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @media screen and (max-width: 425px) {
 	table thead {
 		display: none;
@@ -126,6 +145,6 @@ tfoot td:nth-child(2) button {
 	}
 
 	table td:last-child {
-		border-bottom: 0;
+		/* border-bottom: 0; */
 	}
 }
